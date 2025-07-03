@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "Avenir";
+  src: local("Avenire"),
+    url("./assets/fonts/AvenirLTProBlack.otf") format("otf");
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at center, #0c383b 40%, #00171f 100%);
+  /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000'%3E%3Cg fill-opacity='0.92'%3E%3Ccircle fill='%23330055' cx='50' cy='0' r='50'/%3E%3Cg fill='%233b005d' %3E%3Ccircle cx='0' cy='50' r='50'/%3E%3Ccircle cx='100' cy='50' r='50'/%3E%3C/g%3E%3Ccircle fill='%23420064' cx='50' cy='100' r='50'/%3E%3Cg fill='%234a006c' %3E%3Ccircle cx='0' cy='150' r='50'/%3E%3Ccircle cx='100' cy='150' r='50'/%3E%3C/g%3E%3Ccircle fill='%23520074' cx='50' cy='200' r='50'/%3E%3Cg fill='%235a007c' %3E%3Ccircle cx='0' cy='250' r='50'/%3E%3Ccircle cx='100' cy='250' r='50'/%3E%3C/g%3E%3Ccircle fill='%23620084' cx='50' cy='300' r='50'/%3E%3Cg fill='%236a008d' %3E%3Ccircle cx='0' cy='350' r='50'/%3E%3Ccircle cx='100' cy='350' r='50'/%3E%3C/g%3E%3Ccircle fill='%23730095' cx='50' cy='400' r='50'/%3E%3Cg fill='%237b009d' %3E%3Ccircle cx='0' cy='450' r='50'/%3E%3Ccircle cx='100' cy='450' r='50'/%3E%3C/g%3E%3Ccircle fill='%238400a6' cx='50' cy='500' r='50'/%3E%3Cg fill='%238c00ae' %3E%3Ccircle cx='0' cy='550' r='50'/%3E%3Ccircle cx='100' cy='550' r='50'/%3E%3C/g%3E%3Ccircle fill='%239500b7' cx='50' cy='600' r='50'/%3E%3Cg fill='%239e00c0' %3E%3Ccircle cx='0' cy='650' r='50'/%3E%3Ccircle cx='100' cy='650' r='50'/%3E%3C/g%3E%3Ccircle fill='%23a600c9' cx='50' cy='700' r='50'/%3E%3Cg fill='%23af00d2' %3E%3Ccircle cx='0' cy='750' r='50'/%3E%3Ccircle cx='100' cy='750' r='50'/%3E%3C/g%3E%3Ccircle fill='%23b800db' cx='50' cy='800' r='50'/%3E%3Cg fill='%23c100e4' %3E%3Ccircle cx='0' cy='850' r='50'/%3E%3Ccircle cx='100' cy='850' r='50'/%3E%3C/g%3E%3Ccircle fill='%23cb00ed' cx='50' cy='900' r='50'/%3E%3Cg fill='%23d400f6' %3E%3Ccircle cx='0' cy='950' r='50'/%3E%3Ccircle cx='100' cy='950' r='50'/%3E%3C/g%3E%3Ccircle fill='%23D0F' cx='50' cy='1000' r='50'/%3E%3C/g%3E%3C/svg%3E"); */
+  /* background-image: url("./assets/images/sprinkle.webp"); */
+  /* background-attachment: fixed; */
+  background-size: contain;
+  font-family: Avenir, sans-serif;
+
+  /* background-repeat: no-repeat; */
+}
+
+button {
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 90px;
+  font-family: Avenir, sans-serif;
+  z-index: 99;
+  margin-top: 1rem;
+  background: #ffbf81;
+  cursor: pointer;
+  box-shadow: 0 3px 8px 0 rgb(129 94 94 / 44%), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
+  border: 2px solid #bf747482;
+}
+
+h1,
+h2 {
+  font-family: Avenir, sans-serif;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 4rem;
+}

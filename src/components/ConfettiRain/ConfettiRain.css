@@ -1,0 +1,20 @@
+.confetti1 {
+  position: absolute;
+  left: 36%;
+  top: 0;
+}
+.confetti2 {
+  position: absolute;
+  right: 62%;
+  top: 0;
+}
+.confetti3 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.confetti4 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
