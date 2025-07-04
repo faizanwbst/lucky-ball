@@ -146,7 +146,7 @@ const Cups: React.FC = () => {
             const ballIndex = cups.indexOf(1);
             return (
               <motion.div className="cup-box" key={cup} layout>
-                {ballIndex}
+                {/* {ballIndex} */}
                 <motion.div
                   initial={"normal"}
                   animate={isSelectedLift ? "lift" : "normal"}
