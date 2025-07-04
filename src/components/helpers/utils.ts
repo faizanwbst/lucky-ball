@@ -13,3 +13,11 @@ export function shuffle<T>(array: T[]): T[] {
     return newArray;
   }
 }
+
+export const animationVariant = {
+  cupVariants: {
+    lift: { y: -80, x: -40, rotate: "-25deg" },
+    normal: { y: 0, x: 0, rotate: "0deg" },
+  },
+  shadowVariants: { lift: { x: -20, scale: 0.75 }, normal: { x: 0, scale: 1 } },
+};
