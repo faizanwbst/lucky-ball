@@ -6,7 +6,7 @@
 }
 
 button {
-  padding: 0.5rem 1.2rem;
+  padding: 0.6rem 1.2rem;
   font-size: 1rem;
   border-radius: 90px;
   font-family: Avenir, sans-serif;
@@ -18,7 +18,6 @@ button {
   border: none;
   color: white;
   font-weight: 700;
-  font-size: 1.2rem;
 }
 .won {
   background: #67ab00;
@@ -140,12 +139,14 @@ h1 {
   color: #67ab00;
   margin: 0;
   font-weight: 700;
+  animation: pulse 0.5s ease-in-out forwards;
 }
 .lose-text {
   font-size: 1.8rem;
   color: red;
   margin: 0;
   font-weight: 700;
+  animation: horizontal-shaking 0.3s ease-in-out forwards;
 }
 
 .button-area {
@@ -154,4 +155,38 @@ h1 {
   left: 50%;
   transform: translateX(-50%);
   z-index: 99;
+}
+
+@keyframes horizontal-shaking {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(10px);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+    transform-origin: 50% 50%;
+    transform: rotate(15deg) scale(6);
+    transition: all 0.3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
 }
