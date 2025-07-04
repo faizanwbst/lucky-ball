@@ -1,6 +1,9 @@
+import React from "react";
 import "./App.css";
 import Cups from "./components/Cups/Cups";
 
-export default function App() {
+const App: React.FC = () => {
   return <Cups />;
-}
+};
+
+export default App;

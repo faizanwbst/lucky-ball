@@ -94,7 +94,7 @@ h1 {
   flex-wrap: wrap;
   max-width: 1000px;
   padding: 20px;
-  margin: 2rem auto;
+  margin: 3rem auto;
   justify-content: center;
   align-items: center;
 }
@@ -126,30 +126,32 @@ h1 {
 }
 
 .cup-shadow {
-  width: 135px;
+  width: 140px;
   height: 46px;
   border-radius: 50%;
   position: absolute;
-  top: 77%;
-  left: 21px;
+  top: 80%;
+  left: 20px;
   background: rgba(0, 0, 0, 0.4);
 }
 
 .won-text {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #67ab00;
   margin: 0;
   font-weight: 700;
 }
 .lose-text {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: red;
   margin: 0;
   font-weight: 700;
 }
 
-.highlight-cup {
-  box-shadow: 0 0 0 5px gold, 0 0 20px 10px yellow;
-  border-radius: 20px;
-  transition: box-shadow 0.3s;
+.button-area {
+  position: fixed;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99;
 }
