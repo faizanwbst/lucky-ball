@@ -1,5 +1,5 @@
 import { useState, useCallback, useRef } from "react";
-import { animationVariant, shuffle } from "../helpers/utils";
+import { animationVariant, pickRandom, shuffle } from "../helpers/utils";
 import Cup from "./Cup";
 import ResultArea from "./ResultArea";
 import shuffleSound from "../../assets/audio/card-shuffling.mp3";
@@ -20,9 +20,11 @@ const Cups: React.FC = () => {
     isShow: false,
     win: false,
   });
-  const [selectedCupId, setSelectedCupId] = useState<number | null>(1);
   const [cups, setCups] = useState<number[]>(shuffle([1, 2, 3]));
+  const [random, setRandom] = useState(pickRandom([1, 2, 3]));
+  const [selectedCupId, setSelectedCupId] = useState<number | null>(random);
   const [showInitialStart, setShowInitialStart] = useState<boolean>(true);
+  const [showWinOverlay, setShowWinOverlay] = useState<boolean>(false);
   const shuffleAudioRef = useRef<HTMLAudioElement>(new Audio(shuffleSound));
   const applaudAudioRef = useRef<HTMLAudioElement>(new Audio(applaudSound));
   const winAudioRef = useRef<HTMLAudioElement>(new Audio(winSound));
@@ -35,18 +37,17 @@ const Cups: React.FC = () => {
         setShowCupTransform(true);
         const cupSelected = idx === selectedCupId ? null : idx;
         setSelectedCupId(cupSelected);
-        // setTimeout(() => {
-        setResultState({ isShow: true, win: idx === 1 });
-        if (idx === 1) {
+        setResultState({ isShow: true, win: idx === random });
+        if (idx === random) {
           winAudioRef.current.currentTime = 0;
           winAudioRef.current.play();
           applaudAudioRef.current.currentTime = 0;
           applaudAudioRef.current.play();
+          setShowWinOverlay(true);
         } else {
           loseAudioRef.current.currentTime = 0;
           loseAudioRef.current.play();
         }
-        // }, 1000);
       }
     };
   };
@@ -75,10 +76,12 @@ const Cups: React.FC = () => {
     setShuffling(true);
     setResultState({ win: false, isShow: false });
     stopSounds();
-    setSelectedCupId(1);
+    setSelectedCupId(random);
     setTimeout(() => {
       setSelectedCupId(null);
       setTimeout(() => {
+        const randomIndex = pickRandom([1, 2, 3]);
+        setRandom(randomIndex);
         startShuffle();
       }, 2000);
     }, 500);
@@ -120,7 +123,12 @@ const Cups: React.FC = () => {
     }
   };
 
-  const ballIndex = cups.indexOf(1);
+  const ballIndex = cups.indexOf(random);
+
+  const handleCloseWinOverlay = () => {
+    setShowWinOverlay(false);
+    stopSounds();
+  };
 
   return (
     <div className="app-container">
@@ -133,12 +141,16 @@ const Cups: React.FC = () => {
               cupId={cup}
               isSelectedLift={cup === selectedCupId}
               showCupTransform={showCupTransform}
-              showBall={(resultState.isShow && cup === 1) || shuffling}
+              showBall={(resultState.isShow && cup === random) || shuffling}
               ballIndex={ballIndex}
               index={index}
               cupVariants={animationVariant.cupVariants}
               shadowVariants={animationVariant.shadowVariants}
-              onClick={showInitialStart ? handleInitialStart : handleCupClick(cup) || (() => {})}
+              onClick={
+                showInitialStart
+                  ? handleInitialStart
+                  : handleCupClick(cup) || (() => {})
+              }
             />
           ))}
         </div>
@@ -148,6 +160,8 @@ const Cups: React.FC = () => {
         resultState={resultState}
         shuffling={shuffling}
         onPlayAgain={resetGame}
+        showWinOverlay={showWinOverlay}
+        onCloseWinOverlay={handleCloseWinOverlay}
       />
     </div>
   );
